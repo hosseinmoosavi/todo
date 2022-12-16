@@ -1,0 +1,68 @@
+.taskcontainer {
+	display: flex;
+}
+.done {
+	width: 380px;
+	text-decoration: line-through;
+	overflow-wrap: break-word;
+}
+
+.is {
+	width: 380px;
+	overflow-wrap: break-word;
+}
+
+.fulltask {
+	display: flex;
+	justify-content: space-between;
+	border-top: solid black;
+}
+
+.deletebtn {
+	height: 40px;
+	width: 80px;
+	border: 1px;
+	margin-top: 30px;
+	border-radius: 5px;
+	color: rgb(0, 0, 0);
+	background-color: rgba(106, 183, 255, 0.725);
+	cursor: pointer;
+}
+
+.deletebtn:hover {
+	transition-duration: 500ms;
+	height: 40px;
+	width: 80px;
+	border: 1px;
+	margin-top: 30px;
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+	background-color: rgba(0, 0, 0, 0.725);
+	cursor: pointer;
+}
+
+
+.editbtn {
+	height: 40px;
+	width: 80px;
+	border: 1px;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	color: rgb(0, 0, 0);
+	background-color: rgba(255, 253, 134, 0.725);
+	cursor: pointer;
+}
+
+.editbtn:hover {
+	transition-duration: 500ms;
+	height: 40px;
+	width: 80px;
+	border: 1px;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+	background-color: rgba(109, 107, 7, 0.725);
+	cursor: pointer;
+}
