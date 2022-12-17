@@ -35,7 +35,7 @@ function editHandler(){
             <h2>{Id}-</h2>
             <h2 className={classid}> {Tasktilte}</h2>
             </div>
-            <div>
+            <div className="buttons">
             <button onClick={deleteHandler} className="deletebtn">Delete</button>
             <button className="editbtn" onClick={editHandler}>Edit</button>
             </div>

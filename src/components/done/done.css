@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+}
+
+.done{
+    background-color: #00ff22b9;
+    width: 30%;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 0px 0px 15px 15px;
+    border-top: solid 
+}

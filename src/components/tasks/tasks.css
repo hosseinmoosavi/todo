@@ -8,7 +8,7 @@
 }
 
 .is {
-	width: 380px;
+	width: 300px;
 	overflow-wrap: break-word;
 }
 
@@ -65,4 +65,7 @@
 	color: rgb(255, 255, 255);
 	background-color: rgba(109, 107, 7, 0.725);
 	cursor: pointer;
+}
+.buttons{
+	margin-right: 30px;
 }
