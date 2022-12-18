@@ -1,91 +1,99 @@
 import "./frame.css";
 import Tasks from "../tasks/tasks";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Frame() {
   const [input, setInput] = useState();
-  const [taskarray, setTaskarray] = useState([]);
+  const [taskarray, setTaskarray] = useState(() => {
+    const taskarray = localStorage.getItem("taskarray");
+    const initialValue = JSON.parse(taskarray);
+    return initialValue || "";
+  });
   const inputRef = useRef();
-  const [suborsave,setsuborsave]=useState("submit") 
-  const [editid,setEditid]=useState() 
-  const [newValue,setNewValue]=useState() 
- 
-  
-  
+  const [suborsave, setsuborsave] = useState("submit")
+  const [editid, setEditid] = useState()
+  const [newValue, setNewValue] = useState()
+
+  useEffect(() => {
+    localStorage.setItem('taskarray', JSON.stringify(taskarray))
+  }, [taskarray])
+
+
+
   //-----------------Delete----------------
 
   function deleteHandler(id) {
     setTaskarray(taskarray.filter((task) => task.id != id));
 
   }
-//-----------------input----------------
+  //-----------------input----------------
   function inputHandler(event) {
     setInput(() => event.target.value);
-    setNewValue(()=>event.target.value)
+    setNewValue(() => event.target.value)
   }
-//--------------------submit----------------
-function submitHandler() {
-  if(input==""){ 
-    alert("please write a task")
-  }else{
- if  (suborsave==="submit"){
-  if (taskarray.some((obj) => obj.tasktilte === input)) {
-    alert("task exists");
-    return;
-  }
+  //--------------------submit----------------
+  function submitHandler() {
+    if (input == "") {
+      alert("please write a task")
+    } else {
+      if (suborsave === "submit") {
+        if (taskarray.some((obj) => obj.tasktilte === input)) {
+          alert("task exists");
+          return;
+        }
 
-  
-  const sum = taskarray.length + 1;
-  setTaskarray([
-      ...taskarray,
-      (taskarray.tasktilte = { id: sum, tasktilte: input }),
-    ]);
-    setInput("");
-    inputRef.current.focus();
+
+        const sum = taskarray.length + 1;
+        setTaskarray([
+          ...taskarray,
+          (taskarray.tasktilte = { id: sum, tasktilte: input }),
+        ]);
+        setInput("");
+        inputRef.current.focus();
+      }
+      else {
+        setsuborsave("submit")
+        saveHandler()
+        setInput("");
+        inputRef.current.focus();
+      }
+    }
   }
-  else{
-    setsuborsave("submit")
-    saveHandler()
-    setInput("");
-    inputRef.current.focus();
-  }
-  }
-}
   function handleKeyUp(event) {
     if (event.keyCode === 13) {
       submitHandler();
     }
   }
-  
-  //--------------------edit----------------
-  
-  function editHandler(id){
-   if (input===""){ 
-    const editinput=taskarray[id-1].tasktilte
-    setInput(editinput)
-    setEditid(id)
-    inputRef.current.focus();
-    
-    setsuborsave("save");
-  }else{
-    alert("finish editing")
-  }
-}
 
-  function saveHandler(){  
-        const newTaskArray = taskarray.map((item) => {
-      if(item.id == editid){
+  //--------------------edit----------------
+
+  function editHandler(id) {
+    if (input === "") {
+      const editinput = taskarray[id - 1].tasktilte
+      setInput(editinput)
+      setEditid(id)
+      inputRef.current.focus();
+
+      setsuborsave("save");
+    } else {
+      alert("finish editing")
+    }
+  }
+
+  function saveHandler() {
+    const newTaskArray = taskarray.map((item) => {
+      if (item.id == editid) {
         return {
           id: editid,
           tasktilte: newValue
         }
       }
-      else{
+      else {
         return item
       }
     })
-   setTaskarray(newTaskArray) 
-  
+    setTaskarray(newTaskArray)
+
   }
 
 
