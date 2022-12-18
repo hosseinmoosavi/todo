@@ -1,6 +1,7 @@
 .taskcontainer {
 	display: flex;
 }
+
 .done {
 	width: 380px;
 	text-decoration: line-through;
@@ -66,6 +67,7 @@
 	background-color: rgba(109, 107, 7, 0.725);
 	cursor: pointer;
 }
-.buttons{
+
+.buttons {
 	margin-right: 30px;
 }

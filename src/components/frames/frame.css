@@ -1,10 +1,10 @@
-body{
+body {
     display: flex;
     justify-content: space-around;
     background-color: black;
 }
 
-.frame{
+.frame {
     background-color: #0285ffb9;
     width: 30%;
     justify-content: center;
@@ -13,7 +13,7 @@ body{
     border-top: solid black;
 }
 
-.addtask{
+.addtask {
     width: 70%;
     height: 40px;
     font-size: 20px;
@@ -23,7 +23,7 @@ body{
     margin-top: 30px;
 }
 
-.sbutton{
+.sbutton {
     height: 40px;
     width: 20%;
     border-radius: 10px;
@@ -31,9 +31,10 @@ body{
     background-color: rgb(2, 68, 85);
     cursor: pointer;
     margin-left: 10px;
-    
+
 }
-.sbutton:hover{
+
+.sbutton:hover {
     height: 40px;
     width: 20%;
     border-radius: 10px;
@@ -43,6 +44,7 @@ body{
     transition-duration: 500ms;
     margin-left: 10px;
 }
-.addsection{
-    border-top: solid black ;
+
+.addsection {
+    border-top: solid black;
 }

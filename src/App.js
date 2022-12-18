@@ -5,11 +5,9 @@ import './App.css';
 
 function App() {
   return (
-<div className="app">
-  <Frame/>
-  {/* <Inprogress/>
-  <Done/> */}
-</div>
+    <div className="app">
+      <Frame />
+    </div>
   );
 }
 
