@@ -4,9 +4,8 @@ import { useState } from "react";
 
 
 
-function Tasks({ Tasktilte, Id, hiu_delete, hiu_edit, hiu_save }) {
+function Tasks({ Tasktilte, Id, hiu_delete, hiu_edit, hiu_save, hiu_state }) {
     const [classid, setClassid] = useState("is")
-
 
 
     function editHandler() {
@@ -38,7 +37,7 @@ function Tasks({ Tasktilte, Id, hiu_delete, hiu_edit, hiu_save }) {
             <div className="buttons">
                 <button onClick={deleteHandler} className="deletebtn">Delete</button>
                 <button className="editbtn" onClick={editHandler}>Edit</button>
-            </div>
+                            </div>
         </div>
     )
 }

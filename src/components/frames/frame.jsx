@@ -1,5 +1,6 @@
 import "./frame.css";
 import Tasks from "../tasks/tasks";
+
 import { useState, useRef, useEffect } from "react";
 
 function Frame() {
@@ -44,7 +45,7 @@ function Frame() {
         const sum = taskarray.length + 1;
         setTaskarray([
           ...taskarray,
-          (taskarray.tasktilte = { id: sum, tasktilte: input }),
+          (taskarray.tasktilte = { id: sum, tasktilte: input, state: 0 }),
         ]);
         setInput("");
         inputRef.current.focus();
@@ -95,37 +96,44 @@ function Frame() {
   }
 
 
+
+
   return (
-    <div className="frame">
-      <div className="tasksection">
-        {taskarray.map((taskarray) => {
-          return (
-            <Tasks
-              Taskdelete={taskarray}
-              Tasktilte={taskarray.tasktilte}
-              Id={taskarray.id}
-              hiu_delete={deleteHandler}
-              hiu_edit={editHandler}
-              hiu_save={saveHandler}
-            />
-          );
-        })}
+    <>
+      <div className="frame">
+        <div className="tasksection">
+          {taskarray.map((taskarray) => {
+            return (
+              <Tasks
+                Taskdelete={taskarray}
+                Tasktilte={taskarray.tasktilte}
+                Id={taskarray.id}
+                hiu_delete={deleteHandler}
+                hiu_edit={editHandler}
+                hiu_save={saveHandler}
+
+              />
+
+            );
+          })}
+        </div>
+        <div className="addsection">
+          <input
+            id="taskInput"
+            onKeyUp={handleKeyUp}
+            value={input}
+            onChange={inputHandler}
+            className="addtask"
+            ref={inputRef}
+            placeholder="Add your tasks"
+          ></input>
+          <button type="submit" onClick={submitHandler} className="sbutton">
+            {suborsave}
+          </button>
+        </div>
       </div>
-      <div className="addsection">
-        <input
-          id="taskInput"
-          onKeyUp={handleKeyUp}
-          value={input}
-          onChange={inputHandler}
-          className="addtask"
-          ref={inputRef}
-          placeholder="Add your tasks"
-        ></input>
-        <button type="submit" onClick={submitHandler} className="sbutton">
-          {suborsave}
-        </button>
-      </div>
-    </div>
+
+    </>
   );
 }
 export default Frame;

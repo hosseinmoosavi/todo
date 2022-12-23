@@ -48,3 +48,20 @@ body {
 .addsection {
     border-top: solid black;
 }
+
+.inprogress {
+    background-color: #ffff02b9;
+    width: 30%;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 0px 0px 15px 15px;
+    border-top: solid
+}
+.isdone{
+    background-color: #00ff22b9;
+    width: 30%;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 0px 0px 15px 15px;
+    border-top: solid 
+}
