@@ -8,7 +8,7 @@ function Frame() {
   const [taskarray, setTaskarray] = useState(() => {
     const taskarray = localStorage.getItem("taskarray");
     const initialValue = JSON.parse(taskarray);
-    return initialValue || "";
+    return initialValue;
   });
   const inputRef = useRef();
   const [suborsave, setsuborsave] = useState("submit")
@@ -86,6 +86,7 @@ function Frame() {
           id: editid,
           tasktilte: newValue
         }
+        
       }
       else {
         return item
@@ -94,7 +95,7 @@ function Frame() {
     setTaskarray(newTaskArray)
 
   }
-
+  
 
 
 
@@ -108,7 +109,7 @@ function Frame() {
                 Taskdelete={taskarray}
                 Tasktilte={taskarray.tasktilte}
                 Id={taskarray.id}
-                hiu_delete={deleteHandler}
+                send_delete_id={deleteHandler}
                 hiu_edit={editHandler}
                 hiu_save={saveHandler}
 

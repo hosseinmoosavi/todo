@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 
-function Tasks({ Tasktilte, Id, hiu_delete, hiu_edit, hiu_save, hiu_state }) {
+function Tasks({ Tasktilte, Id, send_delete_id, hiu_edit, hiu_save }) {
     const [classid, setClassid] = useState("is")
 
 
@@ -23,7 +23,7 @@ function Tasks({ Tasktilte, Id, hiu_delete, hiu_edit, hiu_save, hiu_state }) {
     }
 
     function deleteHandler() {
-        hiu_delete(Id)
+            send_delete_id(Id)
     }
 
     return (
